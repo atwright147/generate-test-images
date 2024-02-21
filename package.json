@@ -1,0 +1,22 @@
+{
+  "name": "generate-test-images",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "randomcolor": "^0.6.2",
+    "sharp": "^0.33.2"
+  },
+  "devDependencies": {
+    "@types/randomcolor": "^0.5.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
