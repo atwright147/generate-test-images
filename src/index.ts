@@ -26,12 +26,16 @@ for (const size of sizes) {
 
   const [width, height] = size;
 
+  // Calculate font sizes based on the image dimensions
+  const fontSize1 = Math.min(width, height) * 0.18;
+  const fontSize2 = fontSize1 * 0.67;
+
   // Create a new image with the specified dimensions and background color
   sharp({
     create: {
       width: width,
       height: height,
-      channels: 4, // RGBA channels
+      channels: 3,
       background: bgColor,
     }
   })
@@ -39,10 +43,10 @@ for (const size of sizes) {
   .composite([{
     input: Buffer.from(`
       <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-        <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="ashgray" font-family="Arial" font-size="72">
-          ${index}
+        <text x="50%" y="43%" dominant-baseline="middle" text-anchor="middle" fill="ashgray" font-family="Rockwell" font-size="${fontSize1}">
+          ${String(index).padStart(3, '0')}
         </text>
-        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="ashgray" font-family="Arial" font-size="48">
+        <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" fill="ashgray" font-family="Rockwell" font-size="${fontSize2}">
           ${width}×${height}
         </text>
       </svg>`
